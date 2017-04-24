@@ -7,8 +7,8 @@
     <ProjectGuid>{3171F5F5-0D21-4506-B5DD-E9B53AE494D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Boissonnot.Framework.GeoCoder</RootNamespace>
-    <AssemblyName>Boissonnot.Framework.GeoCoder</AssemblyName>
+    <RootNamespace>Boissonnot.Framework.Map</RootNamespace>
+    <AssemblyName>Boissonnot.Framework.Map</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

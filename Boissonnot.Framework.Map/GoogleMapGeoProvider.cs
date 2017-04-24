@@ -29,6 +29,11 @@ namespace Boissonnot.Framework.Map
             url = string.Format(url, address, this.Key);
 
             WebRequest request = WebRequest.Create(url);
+            ((HttpWebRequest)request).UserAgent = "User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36";
+
+            WebHeaderCollection headerList = request.Headers;
+            headerList.Add("Accept-Language", "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4");
+
             using (WebResponse response = request.GetResponse())
             {
                 using (StreamReader reader = new StreamReader(response.GetResponseStream()))
@@ -39,8 +44,10 @@ namespace Boissonnot.Framework.Map
                     result.IsSuccess = content.IsSuccess;
                     if(result.IsSuccess)
                     {
-                        result.Latitude = content.ResultList[0].GeometryContent.Location.Latitude;
-                        result.Longitude = content.ResultList[0].GeometryContent.Location.Longitude;
+                        int lastIndex = content.ResultList.Length - 1;
+
+                        result.Latitude = content.ResultList[lastIndex].GeometryContent.Location.Latitude;
+                        result.Longitude = content.ResultList[lastIndex].GeometryContent.Location.Longitude;
                     }
                 }
             }
