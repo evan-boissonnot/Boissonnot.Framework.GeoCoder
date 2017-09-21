@@ -26,6 +26,7 @@ namespace Boissonnot.Framework.Map
             IResult result = new DefaultResult();
 
             address = address.Replace(" ", "+");
+            address = address.Replace("#", string.Empty);
             url = string.Format(url, address, this.Key);
 
             WebRequest request = WebRequest.Create(url);
